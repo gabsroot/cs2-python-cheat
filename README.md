@@ -1,6 +1,6 @@
 # Counter Strike 2 Cheat
 
-This is a simple cheat developed in Python for Counter Strike 2, utilizing libraries like [PyMeow](https://github.com/qb-0/pyMeow) and [Pymem](https://pypi.org/project/Pymem/).
+This is a simple cheat developed in Python for Counter Strike 2, utilizing libraries like [PyMeow](https://github.com/qb-0/pyMeow) and [Pymem](https://github.com/srounet/Pymem).
 
 ## Features
 
