@@ -20,7 +20,7 @@ class Entity:
 
     def BonePos(self, bone):
         gameScene = pw.r_int64(self.process, self.pawnPointer + Offsets.m_pGameSceneNode)
-        boneArrayPointer = pw.r_int64(self.process, gameScene + Offsets.m_pBoneArray)
+        boneArrayPointer = pw.r_int64(self.process, gameScene + 480)
         return pw.r_vec3(self.process, boneArrayPointer + bone * 32)
 
     def Wts(self, matrix):
