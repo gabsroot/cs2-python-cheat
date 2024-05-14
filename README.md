@@ -9,7 +9,7 @@ This is a simple cheat developed in Python for Counter Strike 2, utilizing libra
 
 ## Demonstration
 
-![img](https://telegra.ph/file/b5afed74816b19710a879.png)
+![img](https://telegra.ph/file/77fe10f38478e8218093c.png)
 
 Here is a screenshot demonstrating the Counter Strike 2 cheat in action.
 
