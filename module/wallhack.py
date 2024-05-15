@@ -3,7 +3,8 @@ from module.offsets import Offsets
 from module.entity import Entity
 
 class WallHack:
-    def __init__(self, process, module):
+    def __init__(self, process, module, wallhackHealth=True):
+        self.wallhackHealth = wallhackHealth
         self.process = process
         self.module = module
 
@@ -38,10 +39,30 @@ class WallHack:
                 color = pm.get_color("blue") if entity.Team() != 2 else pm.get_color("orange")
                 fill = pm.fade_color(pm.get_color("#242625"), 0.5)
 
-                # Fill
+                # Box Fill
                 pm.draw_rectangle(entity.headPos2d["x"] - center, entity.headPos2d["y"] - center / 2, width, head + center / 2, fill)
 
                 # Box
                 pm.draw_rectangle_lines(entity.headPos2d["x"] - center, entity.headPos2d["y"] - center / 2, width, head + center / 2, color, 0.8)
+
+                if self.wallhackHealth:
+                    # Health
+                    pm.draw_rectangle(
+                        entity.headPos2d["x"] - center - 10,
+                        entity.headPos2d["y"] - center / 2 + (head * 0 / 100),
+                        3,
+                        head + center / 2 - (head * 0 / 100),
+                        color,
+                    )
+
+                    # Health Fill
+                    pm.draw_rectangle(
+                        entity.headPos2d["x"] - center - 10,
+                        entity.headPos2d["y"] - center / 2 + (head * (100 - entity.Health()) / 100),
+                        3,
+                        head + center / 2 - (head * (100 - entity.Health()) / 100),
+                        pm.get_color("#00FF17"),
+                    )
+
 
         pm.end_drawing()

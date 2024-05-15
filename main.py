@@ -15,7 +15,7 @@ class Program:
             self.module = pm.get_module(self.process, "client.dll")["base"]
             self.trigger = TriggerBot(self.process, self.module, ignoreTeam=self.config["ignoreTeam"])
             self.triggerThread = None
-            self.wall = WallHack(self.process, self.module)
+            self.wall = WallHack(self.process, self.module, wallhackHealth=self.config["wallhackHealth"])
         except:
             exit("Error: Enable only after opening Counter Strike 2")
 
@@ -29,7 +29,10 @@ class Program:
     def TriggerThread(self):
         while pm.overlay_loop():
             if self.config["triggerbot"]:
-                self.trigger.Enable()
+                try:
+                    self.trigger.Enable()
+                except:
+                    continue
 
     def Run(self):
         pm.overlay_init(target=self.window, title=self.window, fps=self.fps)
@@ -39,7 +42,10 @@ class Program:
 
         while pm.overlay_loop():
             if self.config["wallhack"]:
-                self.wall.Render()
+                try:
+                    self.wall.Render()
+                except:
+                    continue
 
         if self.triggerThread:
             self.triggerThread.join()
